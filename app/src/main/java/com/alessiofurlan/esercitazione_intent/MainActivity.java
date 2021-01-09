@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean Controllo()
     {
-        if(edtNome.getText().toString()=="" || edtCognome.getText().toString()=="" || edtTel.getText().toString()=="" || edtWeb.getText().toString()=="" || edtMail.getText().toString()=="" || edtAnni.getText().toString()=="")
+        if(edtNome.getText().toString().equals("") || edtCognome.getText().toString().equals("") || edtTel.getText().toString().equals("") || edtWeb.getText().toString().equals("") || edtMail.getText().toString().equals("") || edtAnni.getText().toString().equals(""))
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Attenzione");
