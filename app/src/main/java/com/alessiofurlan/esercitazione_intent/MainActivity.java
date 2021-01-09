@@ -76,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(intent);
 
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Attenzione");
+            builder.setMessage("Inserire tutti i campi correttamente");
+            builder.setCancelable(true);
+            builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss(); // quit AlertDialog
+                    finish(); // quit activity
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
+
         }
 
     }
