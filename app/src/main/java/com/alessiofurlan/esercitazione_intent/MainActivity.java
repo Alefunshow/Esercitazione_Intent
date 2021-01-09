@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean Controllo()
     {
-        boolean controllo=false;
         if(edtNome.getText().toString()=="" || edtCognome.getText().toString()=="" || edtTel.getText().toString()=="" || edtWeb.getText().toString()=="" || edtMail.getText().toString()=="" || edtAnni.getText().toString()=="")
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -49,9 +49,13 @@ public class MainActivity extends AppCompatActivity {
                     });
             AlertDialog alert = builder.create();
             alert.show();
-            return controllo=false;
+            return false;
         }
         else
-            return controllo=true;
+            return true;
+    }
+
+    public void Invio(View w){
+
     }
 }
