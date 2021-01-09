@@ -15,6 +15,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
          c = (Contatto)getIntent().getSerializableExtra("contatto");
+         TextView nome2 = findViewById(R.id.txtNome2);
+         nome2.setText(c.nome+" "+c.cognome);
     }
 
     public void Chiama(View v){
@@ -24,7 +26,7 @@ public class SecondActivity extends AppCompatActivity {
     public void Email(View v){
 
         Intent email = new Intent(Intent.ACTION_SENDTO);
-        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"pippo@fbi.gov"});
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{c.email});
         email.putExtra(Intent.EXTRA_SUBJECT,"Subject here...");
         email.putExtra(Intent.EXTRA_TEXT, "Message here...");
         email.setType("text/plain");
@@ -33,7 +35,7 @@ public class SecondActivity extends AppCompatActivity {
     }
     public void SitoWeb(View v){
 
-        String url = "http://www.google.com";
+        String url = c.sitoWeb;
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
