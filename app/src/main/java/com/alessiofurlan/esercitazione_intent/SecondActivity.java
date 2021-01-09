@@ -23,9 +23,20 @@ public class SecondActivity extends AppCompatActivity {
     }
     public void Email(View v){
 
+        Intent email = new Intent(Intent.ACTION_SENDTO);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"pippo@fbi.gov"});
+        email.putExtra(Intent.EXTRA_SUBJECT,"Subject here...");
+        email.putExtra(Intent.EXTRA_TEXT, "Message here...");
+        email.setType("text/plain");
+        startActivity(Intent.createChooser(email, "Choose an Email client: "));
+
     }
     public void SitoWeb(View v){
 
+        String url = "http://www.google.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
 }
