@@ -38,18 +38,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if(edtNome.getText().toString().equals("") || edtCognome.getText().toString().equals("") || edtTel.getText().toString().equals("") || edtWeb.getText().toString().equals("") || edtMail.getText().toString().equals("") || edtAnni.getText().toString().equals(""))
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Attenzione");
-            builder.setMessage("Inserire tutti i campi correttamente");
-            builder.setCancelable(true);
-            builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss(); // quit AlertDialog
-                            finish(); // quit activity
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
+
             return false;
         }
         else
@@ -68,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("NOME", nome);
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Attenzione");
+            builder.setMessage("Inserire tutti i campi correttamente");
+            builder.setCancelable(true);
+            builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss(); // quit AlertDialog
+                    finish(); // quit activity
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
         }
 
     }
