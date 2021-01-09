@@ -68,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("NOME", nome);
+            intent.putExtra("COGNOME", cognome);
+            intent.putExtra("ANNI", anni);
+            intent.putExtra("MAIL", mail);
+            intent.putExtra("TELEFONO", telefono);
+            intent.putExtra("SITO", sito);
+
+            startActivity(intent);
+
         }
 
     }
