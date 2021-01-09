@@ -36,6 +36,10 @@ public class SecondActivity extends AppCompatActivity {
     public void SitoWeb(View v){
 
         String url = c.sitoWeb;
+        if(!url.startsWith("http://") || !url.startsWith("https://"))
+        {
+            url = "http://"+url;
+        }
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
