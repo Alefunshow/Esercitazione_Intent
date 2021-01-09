@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         edtMail = findViewById(R.id.edtEmail);
         edtTel = findViewById(R.id.edtTel);
         edtWeb = findViewById(R.id.edtWeb);
+
+        btnInvia = findViewById(R.id.btnInvia);
     }
     public boolean Controllo()
     {
