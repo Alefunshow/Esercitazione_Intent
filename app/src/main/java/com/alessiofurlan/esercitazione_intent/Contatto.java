@@ -1,6 +1,8 @@
 package com.alessiofurlan.esercitazione_intent;
 
-public class Contatto {
+import java.io.Serializable;
+
+public class Contatto implements Serializable {
 
     String nome;
     String cognome;

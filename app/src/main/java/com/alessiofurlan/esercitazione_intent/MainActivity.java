@@ -67,13 +67,9 @@ public class MainActivity extends AppCompatActivity {
             String sito = edtWeb.getText().toString();
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            intent.putExtra("NOME", nome);
-            intent.putExtra("COGNOME", cognome);
-            intent.putExtra("ANNI", anni);
-            intent.putExtra("MAIL", mail);
-            intent.putExtra("TELEFONO", telefono);
-            intent.putExtra("SITO", sito);
-
+            Contatto contatto = new Contatto();
+            contatto.inserisciContatto(nome,cognome,anni,sito,mail,telefono);
+            intent.putExtra("contatto", contatto);
             startActivity(intent);
 
         }else{
@@ -84,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss(); // quit AlertDialog
-                    finish(); // quit activity
                 }
             });
             AlertDialog alert = builder.create();
