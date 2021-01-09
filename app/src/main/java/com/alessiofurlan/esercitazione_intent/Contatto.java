@@ -1,12 +1,13 @@
 package com.alessiofurlan.esercitazione_intent;
 
 public class Contatto {
-    private String nome;
-    private String cognome;
-    private String eta;
-    private String sitoWeb;
-    private String email;
-    private String telefono;
+
+    String nome;
+    String cognome;
+    String eta;
+    String sitoWeb;
+    String email;
+    String telefono;
 
 
     Contatto(){
