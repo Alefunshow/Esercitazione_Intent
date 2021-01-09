@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Invio(View w){
+
+        if(Controllo()){
+            String nome = edtNome.getText().toString();
+            String cognome = edtCognome.getText().toString();
+            String anni = edtAnni.getText().toString();
+            String mail = edtMail.getText().toString();
+            String telefono = edtTel.getText().toString();
+            String sito = edtWeb.getText().toString();
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("NOME", nome);
+        }
 
     }
 }
