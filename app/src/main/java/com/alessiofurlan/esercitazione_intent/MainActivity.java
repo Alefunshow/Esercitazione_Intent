@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         edtWeb = findViewById(R.id.edtWeb);
 
     }
-    public boolean Controllo()
+    private boolean Controllo()
     {
-        if(edtNome.getText().toString().equals("") || edtCognome.getText().toString().equals("") || edtTel.getText().toString().equals("") || edtWeb.getText().toString().equals("") || edtMail.getText().toString().equals("") || edtAnni.getText().toString().equals(""))
+        if(isEmpty(edtNome) || isEmpty(edtCognome) || isEmpty(edtAnni) || isEmpty(edtMail) || isEmpty(edtTel) || isEmpty(edtWeb))
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Attenzione");
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss(); // quit AlertDialog
-                            finish(); // quit activity
                         }
                     });
             AlertDialog alert = builder.create();
@@ -87,5 +86,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
+
+        return true;
     }
 }
