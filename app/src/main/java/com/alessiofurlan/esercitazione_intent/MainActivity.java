@@ -1,7 +1,9 @@
 package com.alessiofurlan.esercitazione_intent;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,12 +30,27 @@ public class MainActivity extends AppCompatActivity {
         edtMail = findViewById(R.id.edtEmail);
         edtTel = findViewById(R.id.edtTel);
         edtWeb = findViewById(R.id.edtWeb);
+
     }
     public boolean Controllo()
     {
         boolean controllo=false;
         if(edtNome.getText().toString()=="" || edtCognome.getText().toString()=="" || edtTel.getText().toString()=="" || edtWeb.getText().toString()=="" || edtMail.getText().toString()=="" || edtAnni.getText().toString()=="")
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Attenzione");
+            builder.setMessage("Inserire tutti i campi correttamente");
+            builder.setCancelable(true);
+            builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss(); // quit AlertDialog
+                            finish(); // quit activity
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
             return controllo=false;
+        }
         else
             return controllo=true;
     }
